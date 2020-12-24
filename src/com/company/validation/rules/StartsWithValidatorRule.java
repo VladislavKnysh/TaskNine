@@ -2,7 +2,7 @@ package com.company.validation.rules;
 
 import java.util.Objects;
 
-public class StartsWithValidatorRule implements ValidatorRule {
+public class StartsWithValidatorRule implements ValidatorRule<CharSequence> {
 
     private final String start;
 
@@ -11,7 +11,7 @@ public class StartsWithValidatorRule implements ValidatorRule {
     }
 
     @Override
-    public boolean validate(Object value) {
+    public boolean validate(CharSequence value) {
 
         String stringValue = (String) value;
 

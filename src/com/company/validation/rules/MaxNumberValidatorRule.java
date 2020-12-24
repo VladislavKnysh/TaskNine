@@ -2,7 +2,7 @@ package com.company.validation.rules;
 
 import java.math.BigDecimal;
 
-public class MaxNumberValidatorRule implements ValidatorRule {
+public class MaxNumberValidatorRule implements ValidatorRule<Number> {
     private final Number maxValue;
 
     public MaxNumberValidatorRule(Number maxValue) {
@@ -10,21 +10,10 @@ public class MaxNumberValidatorRule implements ValidatorRule {
     }
 
     @Override
-    public boolean validate(Object value) {
-        if (!CheckObjectClass(value)) {
-            return false;
-        } else {
-            BigDecimal numberValue = new BigDecimal(value.toString());
-            BigDecimal maxValueNumber = new BigDecimal(maxValue.toString());
-            return  maxValueNumber.compareTo(numberValue)>=0;
-
-        }
-    }
-
-    private boolean CheckObjectClass(Object value) {
-        Class clazz = value.getClass();
-        return (Number.class.isAssignableFrom(clazz));
-    }
+    public boolean validate(Number value) {
+        BigDecimal numberValue = new BigDecimal(value.toString());
+        BigDecimal maxValueNumber = new BigDecimal(maxValue.toString());
+        return  maxValueNumber.compareTo(numberValue)>=0;    }
 
     @Override
     public String errorMessage() {

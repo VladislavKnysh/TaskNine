@@ -3,7 +3,7 @@ package com.company.validation.rules;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegExpValidatorRule implements ValidatorRule {
+public class RegExpValidatorRule implements ValidatorRule<CharSequence> {
 
     private final Pattern pattern;
 
@@ -12,7 +12,7 @@ public class RegExpValidatorRule implements ValidatorRule {
     }
 
     @Override
-    public boolean validate(Object value) {
+    public boolean validate(CharSequence value) {
         CharSequence charSequence = (CharSequence) value;
         Matcher matcher = pattern.matcher(charSequence);
         return matcher.matches();
