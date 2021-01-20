@@ -1,3 +1,6 @@
 \.idea
 \out
 *.iml
+\resourses
+\test
+\target
